@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Learning</title>
+    <style>
+      .bg-black {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <div>
+      <h1 id="title" class="heading">
+        DOM Learning <span style="display: none">test text</span>
+      </h1>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam, ad.
+      </p>
+    </div>
+  </body>
+  <script>
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("class", "main");
+    newDiv.setAttribute("id", "header");
+    newDiv.style.backgroundColor = "green";
+    newDiv.style.padding = "12px";
+    newDiv.style.borderRadius = "12px";
+    const newTextNode = document.createTextNode("Hello");
+    newDiv.appendChild(newTextNode);
+    console.log(newDiv);
+    document.body.appendChild(newDiv);
+  </script>
+</html>
