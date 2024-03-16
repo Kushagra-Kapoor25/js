@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async Demo</title>
+  </head>
+  <body style="background-color: #212121">
+    <h1 style="color: aliceblue">Change Background Color Project</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // generate random number
+    const getRandomColor = function () {
+      const hex = "0123456789ABCDEF";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        let index = Math.floor(Math.random() * hex.length);
+        color = color.concat(hex[index]);
+      }
+      return color;
+    };
+
+    const start = document.querySelector("#start");
+    const stop = document.querySelector("#stop");
+    let intervalId;
+
+    const startChangingBgColor = function () {
+      if (!intervalId) {
+        intervalId = setInterval(() => {
+          document.body.style.backgroundColor = getRandomColor();
+        }, 1000);
+      }
+    };
+
+    const stopChangingBgColor = function () {
+      clearInterval(intervalId);
+      intervalId = null;
+    };
+
+    getRandomColor();
+    start.addEventListener("click", startChangingBgColor);
+    stop.addEventListener("click", stopChangingBgColor);
+  </script>
+</html>
